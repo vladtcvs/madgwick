@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 2.6)
 project(madgwick)
 
-add_executable(madgwick main.cpp)
+include_directories(${CMAKE_SOURCE_DIR})
 
-install(TARGETS madgwick RUNTIME DESTINATION bin)
+add_library(madgwick STATIC main.c quaternion.c)
+
+target_link_libraries(madgwick m)
